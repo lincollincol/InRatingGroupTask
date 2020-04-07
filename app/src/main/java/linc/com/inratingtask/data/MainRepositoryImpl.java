@@ -1,11 +1,7 @@
 package linc.com.inratingtask.data;
 
-import android.util.Log;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.util.List;
 
@@ -14,11 +10,8 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.schedulers.Schedulers;
 import linc.com.inratingtask.data.api.PostApi;
 import linc.com.inratingtask.data.mappers.DatumMapper;
-import linc.com.inratingtask.data.models.Datum;
 import linc.com.inratingtask.data.models.ResponseModel;
 import linc.com.inratingtask.domain.models.DatumEntity;
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainRepositoryImpl implements MainRepository {
@@ -75,32 +68,3 @@ public class MainRepositoryImpl implements MainRepository {
 
 
 }
-
-/*
-
-JsonObject joo = new JsonObject();
-        joo.addProperty("id", "2720");
-        postApi.getLikers(token, joo)
-                .enqueue(new Callback<ResponseModel>() {
-                    @Override
-                    public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                        if(response.isSuccessful()) {
-                            for (Datum d : response.body().getData()) {
-                                Log.d("RESPONSE", d.getNickname());
-                            }
-
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseModel> call, Throwable t) {
-                        Log.d("RESPONSE", t.getLocalizedMessage());
-                    }
-                });
-
-
-
-postApi.getLikers(token, apiBody)
-                    .map(responseModel -> datumMapper.datumToEntityList(responseModel.getData()))
-                    .subscribeOn(Schedulers.io());
- */

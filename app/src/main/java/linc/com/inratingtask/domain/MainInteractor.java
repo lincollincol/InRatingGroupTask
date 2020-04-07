@@ -10,5 +10,5 @@ import linc.com.inratingtask.domain.models.StatisticEntity;
 public interface MainInteractor {
 
     Flowable<List<StatisticEntity>> execute(String token);
-
+    void stop();
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import io.reactivex.Single;
 import linc.com.inratingtask.domain.models.DatumEntity;
-import retrofit2.Call;
 
 public interface MainRepository {
     Single<List<DatumEntity>> getLikers(String token);

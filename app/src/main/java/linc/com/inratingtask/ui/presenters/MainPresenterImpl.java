@@ -7,7 +7,7 @@ import io.reactivex.schedulers.Schedulers;
 import linc.com.inratingtask.domain.MainInteractor;
 import linc.com.inratingtask.ui.views.MainView;
 
-public class MainPresenterImpl {
+public class MainPresenterImpl implements MainPresenter{
 
     private MainView view;
     private MainInteractor interactor;
@@ -18,11 +18,13 @@ public class MainPresenterImpl {
         this.disposableBag = disposableBag;
     }
 
-    public void bind(MainView view) {
+    @Override
+    public void bind(final MainView view) {
         this.view = view;
     }
 
-    public void loadUsers(String token) {
+    @Override
+    public void loadUsers(final String token) {
         view.clearStatistics();
         disposableBag.add(
             interactor.execute(token)
@@ -32,5 +34,13 @@ public class MainPresenterImpl {
         );
     }
 
-    //todo dispose
+    @Override
+    public void unbind() {
+        if (!disposableBag.isDisposed()) {
+            disposableBag.dispose();
+        }
+        interactor = null;
+        disposableBag = null;
+    }
+
 }
