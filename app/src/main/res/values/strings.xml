@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">InRatingTask</string>
+
+    <string name="title_statistics_likes">Likes %1$d</string>
+    <string name="title_statistics_comments">Comments %1$d</string>
+    <string name="title_statistics_mentions">Mentions %1$d</string>
+    <string name="title_statistics_reposts">Reposts %1$d</string>
+    <string name="statistic_more">More</string>
+    <string name="statistic_likes">Likes</string>
+
+
+</resources>
